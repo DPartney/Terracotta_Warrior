@@ -1,1 +1,1 @@
-My capstone project with Neumont, currently projected a timeframe of 7 weeks and I will be using Godot for the first time. Terracotta Warrior is projected to be a metroidvania focused around elements being used for the key progression and will be fully pixel graphics.
+My capstone project with Neumont, currently projected a timeframe of 7 weeks and I will be using Godot for the first time. Terracotta Warrior is a metroidvania focused around elements being used for the key progression and will be fully pixel graphics.
