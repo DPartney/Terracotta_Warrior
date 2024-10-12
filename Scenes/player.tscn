@@ -56,76 +56,31 @@
 [ext_resource type="Texture2D" uid="uid://cps7mhtvefxas" path="res://MainCharacter/PNG/run/run_7.png" id="120_s6uim"]
 [ext_resource type="Texture2D" uid="uid://47eue7wgh68l" path="res://MainCharacter/PNG/run/run_8.png" id="121_xxnf8"]
 
-[sub_resource type="Animation" id="Animation_ytfka"]
-resource_name = "wind_run"
-length = 0.583342
-loop_mode = 1
-step = 0.0833333
+[sub_resource type="Animation" id="Animation_fbfaa"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath(".:attacking")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("100_lxvvo"), ExtResource("101_wlyme"), ExtResource("101_wlyme"), ExtResource("102_dca6c"), ExtResource("104_gjioo"), ExtResource("105_th1qg"), ExtResource("106_gidgh"), ExtResource("107_23eym")]
+"values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_dmmhi"]
-resource_name = "wind_run"
-length = 0.583342
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("114_mxfhb"), ExtResource("115_d1shb"), ExtResource("116_toa10"), ExtResource("117_otakw"), ExtResource("118_uukdf"), ExtResource("119_vvewn"), ExtResource("120_s6uim"), ExtResource("121_xxnf8")]
-}
-
-[sub_resource type="Animation" id="Animation_krsgs"]
-resource_name = "wind_run"
-length = 0.166675
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("111_7wwgn"), ExtResource("112_qss5t"), ExtResource("113_3hwmh")]
-}
-
-[sub_resource type="Animation" id="Animation_axgi8"]
-resource_name = "wind_run"
-length = 0.333342
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("108_e5l5t"), ExtResource("109_8qsuk"), ExtResource("110_vliyk")]
+"values": [ExtResource("100_lxvvo")]
 }
 
 [sub_resource type="Animation" id="Animation_6bmcl"]
@@ -191,31 +146,76 @@ tracks/0/keys = {
 "values": [ExtResource("37_m3gem"), ExtResource("38_edwyt"), ExtResource("39_fofrn"), ExtResource("40_s66mo"), ExtResource("41_8kqub"), ExtResource("42_obhy1"), ExtResource("43_nf6aa"), ExtResource("44_8m4v1"), ExtResource("45_5670m"), ExtResource("46_5x1hq"), ExtResource("47_8bmu7"), ExtResource("48_c76al"), ExtResource("49_ln6jr"), ExtResource("50_4tupt"), ExtResource("51_k82e2"), ExtResource("52_87ade"), ExtResource("53_myijo"), ExtResource("54_h8uci"), ExtResource("55_k62ff")]
 }
 
-[sub_resource type="Animation" id="Animation_fbfaa"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_axgi8"]
+resource_name = "wind_run"
+length = 0.333342
+loop_mode = 1
+step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:attacking")
+tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false]
+"values": [ExtResource("108_e5l5t"), ExtResource("109_8qsuk"), ExtResource("110_vliyk")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_ytfka"]
+resource_name = "wind_run"
+length = 0.583342
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("100_lxvvo")]
+"values": [ExtResource("100_lxvvo"), ExtResource("101_wlyme"), ExtResource("101_wlyme"), ExtResource("102_dca6c"), ExtResource("104_gjioo"), ExtResource("105_th1qg"), ExtResource("106_gidgh"), ExtResource("107_23eym")]
+}
+
+[sub_resource type="Animation" id="Animation_krsgs"]
+resource_name = "wind_run"
+length = 0.166675
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("111_7wwgn"), ExtResource("112_qss5t"), ExtResource("113_3hwmh")]
+}
+
+[sub_resource type="Animation" id="Animation_dmmhi"]
+resource_name = "wind_run"
+length = 0.583342
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("114_mxfhb"), ExtResource("115_d1shb"), ExtResource("116_toa10"), ExtResource("117_otakw"), ExtResource("118_uukdf"), ExtResource("119_vvewn"), ExtResource("120_s6uim"), ExtResource("121_xxnf8")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kl2qg"]
@@ -234,6 +234,8 @@ _data = {
 size = Vector2(26, 37)
 
 [node name="Player" type="CharacterBody2D"]
+floor_constant_speed = true
+floor_snap_length = 10.0
 script = ExtResource("1_mrqdb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
