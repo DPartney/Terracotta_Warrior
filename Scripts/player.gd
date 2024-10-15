@@ -25,9 +25,13 @@ func _physics_process(delta: float) -> void:
 		elif direction == -1:
 			S2D.flip_h = true
 			
-	
+	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	# Drop
+	if Input.is_action_pressed("Down") and is_on_floor() and !attacking:
+		position.y += 1
 
 	# Jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -35,10 +39,6 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y = JUMP_VELOCITY / 6
-		
-	# Drop
-	if Input.is_action_pressed("Down"):
-		position.y += 1
 
 	update_animation()
 	attack()
