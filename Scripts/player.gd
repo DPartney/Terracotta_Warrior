@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @onready var AP = $AnimationPlayer
 @onready var S2D = $Sprite2D
+@onready var CS2D = $CollisionShape2D2
 @export var attacking := false
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 250.0
+const JUMP_VELOCITY = -450.0
 
 func _physics_process(delta: float) -> void:
 	
@@ -23,6 +24,7 @@ func _physics_process(delta: float) -> void:
 			S2D.flip_h = false
 		elif direction == -1:
 			S2D.flip_h = true
+			
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -33,6 +35,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y = JUMP_VELOCITY / 6
+		
+	# Drop
+	if Input.is_action_pressed("Down"):
+		position.y += 1
 
 	update_animation()
 	attack()
