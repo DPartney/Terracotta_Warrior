@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ei024ifptcu"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_4rwyu"]
+[ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="2_i5cgo"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_4rwyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_i5cgo")
