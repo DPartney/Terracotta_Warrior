@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var AP = $AnimationPlayer
 @onready var S2D = $Sprite2D
-@onready var CS2D = $CollisionShape2D2
+@onready var CS2D = $CollisionShape2D
 @export var attacking := false
 
 const SPEED = 250.0
