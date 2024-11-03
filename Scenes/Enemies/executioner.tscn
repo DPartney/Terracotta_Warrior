@@ -1,24 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn76qi4udwwcl"]
+[gd_scene load_steps=11 format=3 uid="uid://dn76qi4udwwcl"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/executioner.gd" id="1_3xqgp"]
 [ext_resource type="Texture2D" uid="uid://dd6ll623u6q5n" path="res://Assets/Enemies/Executioner/ExecutionerSpriteSheet.png" id="1_faqnv"]
-
-[sub_resource type="Animation" id="Animation_jbiqp"]
-resource_name = "executioner_idle"
-length = 0.8
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 10, 11, 12, 13]
-}
+[ext_resource type="Script" path="res://Scripts/Components/HitboxComponent.gd" id="3_1itvx"]
 
 [sub_resource type="Animation" id="Animation_v655x"]
 length = 0.001
@@ -33,6 +17,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitboxComponent/MeleeHitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_sc7at"]
@@ -50,6 +46,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [40, 41, 42, 43, 44, 45, 50, 51, 52, 53, 54, 55, 60]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitboxComponent/MeleeHitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.436497, 1.1235, 1.37039),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_28j6i"]
@@ -69,6 +77,23 @@ tracks/0/keys = {
 "values": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
 }
 
+[sub_resource type="Animation" id="Animation_jbiqp"]
+resource_name = "executioner_idle"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 10, 11, 12, 13]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khrfv"]
 _data = {
 "RESET": SubResource("Animation_v655x"),
@@ -81,7 +106,12 @@ _data = {
 radius = 12.0
 height = 56.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw1hr"]
+size = Vector2(32, 55)
+
 [node name="Executioner" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_3xqgp")
 
@@ -99,5 +129,15 @@ vframes = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -28)
 shape = SubResource("CapsuleShape2D_b27ta")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_1itvx")
+
+[node name="MeleeHitbox" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(34, -28)
+shape = SubResource("RectangleShape2D_aw1hr")
+disabled = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="AnimationFinished"]

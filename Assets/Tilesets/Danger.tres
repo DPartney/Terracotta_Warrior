@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dfax514waryd7"]
+
+[ext_resource type="Texture2D" uid="uid://tdt1vis15p12" path="res://Assets/Tilemaps/Liquid/Acid-Sheet.png" id="1_jot40"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqkrt"]
+texture = ExtResource("1_jot40")
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 0.25
+0:0/animation_frame_1/duration = 0.25
+0:0/animation_frame_2/duration = 0.25
+0:0/animation_frame_3/duration = 0.25
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5, 8, -5, 8, 8, -8, 8)
+4:0/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 64
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_oqkrt")

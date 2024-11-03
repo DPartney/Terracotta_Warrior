@@ -8,8 +8,10 @@ extends CharacterBody2D
 const SPEED = 250.0
 const JUMP_VELOCITY = -450.0
 
+var health := 10
+
 func _physics_process(delta: float) -> void:
-	
+
 	var direction = Input.get_axis("Left", "Right")
 	
 	# Movement
@@ -51,7 +53,7 @@ func attack():
 		AP.play("wind_attack")
 		
 func update_animation():
-	if !attacking:
+	if (!attacking):
 		if velocity.x != 0:
 			AP.play("wind_run")
 		else:
@@ -61,3 +63,17 @@ func update_animation():
 			AP.play("wind_jump")
 		elif velocity.y > 0:
 			AP.play("wind_fall")
+
+func take_damage(damage):
+	health -= damage
+	attacking = true
+	AP.play("wind_damaged")
+	if (health <= 0):
+		queue_free()
+
+func _on_hurtbox_area_entered(_area: Area2D) -> void:
+	take_damage(1)
+
+
+func _on_hurtbox_body_entered(_body: Node2D) -> void:
+	take_damage(1)
