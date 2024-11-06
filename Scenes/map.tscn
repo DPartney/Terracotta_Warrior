@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=4 uid="uid://c1tsmfv88gq3x"]
+[gd_scene load_steps=11 format=4 uid="uid://c1tsmfv88gq3x"]
 
-[ext_resource type="Script" path="res://Scripts/starting_area.gd" id="1_86bkk"]
 [ext_resource type="PackedScene" uid="uid://blg1xfco51dfg" path="res://Scenes/player.tscn" id="2_locg1"]
 [ext_resource type="TileSet" uid="uid://rms67lnuai7t" path="res://Assets/Tilesets/Main.tres" id="3_rr1vh"]
 [ext_resource type="TileSet" uid="uid://dfax514waryd7" path="res://Assets/Tilesets/Danger.tres" id="4_q335o"]
@@ -8,9 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://cb2a8rwyyq0or" path="res://Scenes/Enemies/boss_golem.tscn" id="6_336ew"]
 [ext_resource type="PackedScene" uid="uid://bennaqmmpj21s" path="res://Scenes/Enemies/cloaked_warrior.tscn" id="7_g1edv"]
 [ext_resource type="PackedScene" uid="uid://dn76qi4udwwcl" path="res://Scenes/Enemies/executioner.tscn" id="8_8msta"]
+[ext_resource type="PackedScene" uid="uid://1j6wssl7ldce" path="res://Scenes/UI/Pause.tscn" id="9_edpun"]
+[ext_resource type="PackedScene" uid="uid://cpj40awt2ocht" path="res://Scenes/UI/health_bar.tscn" id="9_k411r"]
+
+[sub_resource type="GDScript" id="GDScript_dyf87"]
+script/source = "extends Node
+
+#@onready var pause_menu = $Pause
+var paused = false
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"Pause\"):
+		#get_tree().quit()
+		#if paused:
+			#get_tree().paused = false
+			#pause_menu.hide()
+		#else:
+			#get_tree().paused = true
+			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			#pause_menu.show()
+		
+		paused = !paused
+"
 
 [node name="Main" type="Node"]
-script = ExtResource("1_86bkk")
+script = SubResource("GDScript_dyf87")
 
 [node name="Player" parent="." instance=ExtResource("2_locg1")]
 floor_max_angle = 1.13446
@@ -56,3 +78,18 @@ position = Vector2(148, 628)
 
 [node name="Executioner" parent="Enemies" instance=ExtResource("8_8msta")]
 position = Vector2(1397, 60)
+
+[node name="Overlays" type="CanvasLayer" parent="."]
+offset = Vector2(1300, 600)
+transform = Transform2D(1, 0, 0, 1, 1300, 600)
+
+[node name="Pause" parent="Overlays" instance=ExtResource("9_edpun")]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="HealthBar" parent="Overlays" instance=ExtResource("9_k411r")]
+visible = false
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = -1000.0
+offset_bottom = -500.0

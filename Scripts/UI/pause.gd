@@ -1,18 +1,19 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+@onready var menu := $"."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if (Input.is_action_pressed("Pause")):
+		menu.show()
+		get_tree().paused = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _on_resume_button_pressed() -> void:
-	pass # Replace with function body.
+	menu.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	get_tree().paused = false
 
 
 func _on_quit_button_pressed() -> void:

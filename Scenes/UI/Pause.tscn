@@ -1,54 +1,101 @@
-[gd_scene load_steps=4 format=3 uid="uid://1j6wssl7ldce"]
+[gd_scene load_steps=6 format=3 uid="uid://1j6wssl7ldce"]
 
 [ext_resource type="Script" path="res://Scripts/UI/pause.gd" id="1_mvxxy"]
 [ext_resource type="Texture2D" uid="uid://bruucriqg34qk" path="res://Assets/UI/CrimsonFantasyGUI/Newstuff 1.png" id="2_cc0l4"]
+[ext_resource type="FontFile" uid="uid://c1eomngy30hfh" path="res://Assets/UI/monogram.ttf" id="3_8bw2a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2t3p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2p5p"]
 atlas = ExtResource("2_cc0l4")
 region = Rect2(10, 9, 48, 16)
 
+[sub_resource type="LabelSettings" id="LabelSettings_87hkq"]
+line_spacing = 1.0
+font = ExtResource("3_8bw2a")
+font_color = Color(1, 0.917647, 0.788235, 1)
+
 [node name="Pause" type="Control"]
+process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_mvxxy")
 
-[node name="ResumeButton" type="TextureButton" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -50.0
-offset_right = 160.0
-offset_bottom = 60.0
+offset_left = -288.0
+offset_top = -284.0
+offset_right = 288.0
+offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Start"
-texture_normal = SubResource("AtlasTexture_v2t3p")
+theme_override_colors/font_color = Color(1, 0.917647, 0.788235, 1)
+theme_override_fonts/font = ExtResource("3_8bw2a")
+theme_override_font_sizes/font_size = 256
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = -1286.0
+offset_top = -1.0
+offset_right = -1029.0
+offset_bottom = 76.0
+scale = Vector2(10, 10)
+alignment = 1
+
+[node name="ResumetButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e2p5p")
 stretch_mode = 5
 
-[node name="QuitButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = 100.0
-offset_right = 160.0
-offset_bottom = 210.0
-grow_horizontal = 2
-grow_vertical = 2
-tooltip_text = "Start"
-texture_normal = SubResource("AtlasTexture_v2t3p")
+[node name="Label" type="Label" parent="Buttons/ResumetButton"]
+layout_mode = 0
+offset_left = 110.6
+offset_top = 1.1
+offset_right = 146.6
+offset_bottom = 14.1
+text = "Resume"
+label_settings = SubResource("LabelSettings_87hkq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e2p5p")
 stretch_mode = 5
 
-[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Label2" type="Label" parent="Buttons/OptionsButton"]
+layout_mode = 0
+offset_left = 107.7
+offset_top = 1.3
+offset_right = 149.7
+offset_bottom = 14.3
+text = "Options"
+label_settings = SubResource("LabelSettings_87hkq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_e2p5p")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="Buttons/QuitButton"]
+layout_mode = 0
+offset_left = 107.8
+offset_top = 0.899998
+offset_right = 149.8
+offset_bottom = 13.9
+text = "Quit"
+label_settings = SubResource("LabelSettings_87hkq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Buttons/ResumetButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

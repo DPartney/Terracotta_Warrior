@@ -4,14 +4,14 @@ extends CharacterBody2D
 @onready var S2D = $Sprite2D
 @onready var CS2D = $CollisionShape2D
 @export var attacking := false
+@export var dead := false
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -450.0
 
-var health := 10
-
 func _physics_process(delta: float) -> void:
-
+	if (dead):
+		pass
 	var direction = Input.get_axis("Left", "Right")
 	
 	# Movement
@@ -65,15 +65,18 @@ func update_animation():
 			AP.play("wind_fall")
 
 func take_damage(damage):
-	health -= damage
+	PlayerVariables.PlayerHealth -= damage
 	attacking = true
 	AP.play("wind_damaged")
-	if (health <= 0):
-		queue_free()
+	if (PlayerVariables.PlayerHealth <= 0):
+		dead = true
+		AP.play("wind_death")
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	take_damage(1)
 
-
 func _on_hurtbox_body_entered(_body: Node2D) -> void:
 	take_damage(1)
+
+func player_died():
+	get_tree().quit()

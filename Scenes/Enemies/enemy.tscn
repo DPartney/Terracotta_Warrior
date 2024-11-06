@@ -1,10 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://8ei024ifptcu"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_4rwyu"]
 [ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="2_i5cgo"]
 
+[sub_resource type="GDScript" id="GDScript_foscm"]
+script/source = "extends Node2D
+
+@onready var AP = $AnimationPlayer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_4rwyu")
+script = SubResource("GDScript_foscm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
