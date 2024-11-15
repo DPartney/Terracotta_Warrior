@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Drop
 	if Input.is_action_pressed("Down") and is_on_floor() and !attacking:
-		position.y += 1
+		position.y += 2
 
 	# Jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -65,12 +65,19 @@ func update_animation():
 			AP.play("wind_fall")
 
 func take_damage(damage):
+	if dead:
+		return
 	PlayerVariables.PlayerHealth -= damage
 	attacking = true
+	#knockback()
 	AP.play("wind_damaged")
 	if (PlayerVariables.PlayerHealth <= 0):
 		dead = true
 		AP.play("wind_death")
+		
+func knockback():
+	velocity = Vector2(-600, -100 * 2)
+	pass
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	take_damage(1)

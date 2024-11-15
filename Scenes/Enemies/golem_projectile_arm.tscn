@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1flvmihartbh"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/golem_projectile_arm.gd" id="1_ahneu"]
+[ext_resource type="Texture2D" uid="uid://bnld4ggu1u4st" path="res://Assets/Enemies/Bosses/Golem/Weapons/arm_projectile_glowing.png" id="1_ll15c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btlq2"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhox3"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvtja"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_facvk"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic5b5"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmae8"]
+atlas = ExtResource("1_ll15c")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nf7vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btlq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhox3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvtja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_facvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic5b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmae8")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk6k8"]
+size = Vector2(35, 16)
+
+[node name="GolemProjectileArm" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_ahneu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-27, 12)
+sprite_frames = SubResource("SpriteFrames_nf7vi")
+animation = &"fire"
+frame_progress = 0.94245
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_vk6k8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
