@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bennaqmmpj21s"]
+[gd_scene load_steps=18 format=3 uid="uid://bennaqmmpj21s"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/cloaked_warrior.gd" id="1_3gn8u"]
+[ext_resource type="Script" uid="uid://cjvlqkl4n45p2" path="res://Scripts/Enemies/cloaked_warrior.gd" id="1_3gn8u"]
 [ext_resource type="Texture2D" uid="uid://dar007ouy7vil" path="res://Assets/Enemies/CloakedWarrior/Bringer-of-Death-SpritSheet.png" id="2_x63qn"]
-[ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="3_3iopg"]
-[ext_resource type="Script" path="res://Scripts/Components/HitboxComponent.gd" id="3_mlicm"]
+[ext_resource type="Script" uid="uid://dw27quar45c1f" path="res://Scripts/Components/HealthComponent.gd" id="3_3iopg"]
+[ext_resource type="Script" uid="uid://dlkg6c6p32cxl" path="res://Scripts/Components/HitboxComponent.gd" id="3_mlicm"]
+[ext_resource type="AudioStream" uid="uid://ckxludl44rjed" path="res://Assets/Audio/CloakedGrunt.mp3" id="5_7rn6a"]
+[ext_resource type="AudioStream" uid="uid://i08vj4aoxwd6" path="res://Assets/Audio/CloakedSwing.mp3" id="6_1ju18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km7i8"]
 size = Vector2(50, 57)
@@ -46,6 +48,42 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animating")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_005ih"]
 resource_name = "cw_attack"
@@ -87,6 +125,32 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animating")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlaySlashSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_1wen4"]
 resource_name = "cw_death"
@@ -104,6 +168,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_m5l8p"]
 resource_name = "cw_hurt"
@@ -120,6 +208,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [25, 26, 27, 28]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animating")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.34),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:attacking")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2ovb0"]
@@ -174,18 +286,21 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlvsg"]
 _data = {
-"RESET": SubResource("Animation_8oxsa"),
-"cw_attack": SubResource("Animation_005ih"),
-"cw_death": SubResource("Animation_1wen4"),
-"cw_hurt": SubResource("Animation_m5l8p"),
-"cw_idle": SubResource("Animation_2ovb0"),
-"cw_ranged": SubResource("Animation_npveu"),
-"cw_walk": SubResource("Animation_t7oqc")
+&"RESET": SubResource("Animation_8oxsa"),
+&"cw_attack": SubResource("Animation_005ih"),
+&"cw_death": SubResource("Animation_1wen4"),
+&"cw_hurt": SubResource("Animation_m5l8p"),
+&"cw_idle": SubResource("Animation_2ovb0"),
+&"cw_ranged": SubResource("Animation_npveu"),
+&"cw_walk": SubResource("Animation_t7oqc")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o76go"]
 radius = 20.0
 height = 57.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmjxs"]
+size = Vector2(39, 55)
 
 [node name="CloakedWarrior" type="CharacterBody2D"]
 collision_layer = 16
@@ -202,18 +317,18 @@ hframes = 8
 vframes = 8
 region_rect = Rect2(-43, 0, 1294, 744)
 
-[node name="DetectPlayer" type="RayCast2D" parent="Marker2D"]
+[node name="DetectPlayer" type="RayCast2D" parent="Marker2D" groups=["Components"]]
 position = Vector2(0, -30)
 target_position = Vector2(50, 0)
 collision_mask = 4
 
-[node name="HitboxComponent" type="Area2D" parent="Marker2D" node_paths=PackedStringArray("health_component")]
+[node name="HitboxComponent" type="Area2D" parent="Marker2D" node_paths=PackedStringArray("health_component") groups=["Components"]]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("3_mlicm")
 health_component = NodePath("../../HealthComponent")
 
-[node name="MeleeHitbox" type="CollisionShape2D" parent="Marker2D/HitboxComponent"]
+[node name="MeleeHitbox" type="CollisionShape2D" parent="Marker2D/HitboxComponent" groups=["Components"]]
 position = Vector2(56, -28.5)
 shape = SubResource("RectangleShape2D_km7i8")
 disabled = true
@@ -223,15 +338,15 @@ libraries = {
 "": SubResource("AnimationLibrary_qlvsg")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Components"]]
 position = Vector2(0, -28.5)
 shape = SubResource("CapsuleShape2D_o76go")
 
-[node name="RayCastRight" type="RayCast2D" parent="."]
+[node name="RayCastRight" type="RayCast2D" parent="." groups=["Components"]]
 position = Vector2(0, -10)
 target_position = Vector2(22, 0)
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
+[node name="RayCastLeft" type="RayCast2D" parent="." groups=["Components"]]
 position = Vector2(0, -10)
 target_position = Vector2(-22, 0)
 
@@ -239,5 +354,26 @@ target_position = Vector2(-22, 0)
 script = ExtResource("3_3iopg")
 MAX_HEALTH = 4
 
-[connection signal="body_entered" from="Marker2D/HitboxComponent" to="." method="_on_hitbox_component_body_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="AnimationFinished"]
+[node name="Hurtbox" type="Area2D" parent="." groups=["Components"]]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" groups=["Components"]]
+position = Vector2(-2.5, -27.5)
+shape = SubResource("RectangleShape2D_wmjxs")
+
+[node name="AudioGrunt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7rn6a")
+volume_db = -10.0
+
+[node name="AudioSlash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1ju18")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -50)
+scale = Vector2(10, 5)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

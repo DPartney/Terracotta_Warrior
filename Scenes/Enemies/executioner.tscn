@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn76qi4udwwcl"]
+[gd_scene load_steps=14 format=3 uid="uid://dn76qi4udwwcl"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/executioner.gd" id="1_3xqgp"]
+[ext_resource type="Script" uid="uid://c3x4efxbgo57n" path="res://Scripts/Enemies/executioner.gd" id="1_3xqgp"]
 [ext_resource type="Texture2D" uid="uid://dd6ll623u6q5n" path="res://Assets/Enemies/Executioner/ExecutionerSpriteSheet.png" id="1_faqnv"]
-[ext_resource type="Script" path="res://Scripts/Components/HitboxComponent.gd" id="3_1itvx"]
+[ext_resource type="Script" uid="uid://dlkg6c6p32cxl" path="res://Scripts/Components/HitboxComponent.gd" id="3_1itvx"]
+[ext_resource type="Script" uid="uid://dw27quar45c1f" path="res://Scripts/Components/HealthComponent.gd" id="4_k4vim"]
+[ext_resource type="AudioStream" uid="uid://r4ig0iec3q5y" path="res://Assets/Audio/ExecutionerDeath.wav" id="5_3vy3m"]
 
 [sub_resource type="Animation" id="Animation_v655x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,13 +23,13 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitboxComponent/MeleeHitbox:disabled")
+tracks/1/path = NodePath("Marker2D/HitboxComponent/MeleeHitbox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [true]
 }
 
@@ -38,7 +40,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,13 +52,13 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitboxComponent/MeleeHitbox:disabled")
+tracks/1/path = NodePath("Marker2D/HitboxComponent/MeleeHitbox:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.25, 0.436497, 1.1235, 1.37039),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true]
 }
 
@@ -67,7 +69,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -84,7 +86,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -96,10 +98,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khrfv"]
 _data = {
-"RESET": SubResource("Animation_v655x"),
-"executioner_attack": SubResource("Animation_sc7at"),
-"executioner_death": SubResource("Animation_28j6i"),
-"executioner_float": SubResource("Animation_jbiqp")
+&"RESET": SubResource("Animation_v655x"),
+&"executioner_attack": SubResource("Animation_sc7at"),
+&"executioner_death": SubResource("Animation_28j6i"),
+&"executioner_float": SubResource("Animation_jbiqp")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b27ta"]
@@ -108,6 +110,10 @@ height = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aw1hr"]
 size = Vector2(32, 55)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_saf12"]
+radius = 14.0
+height = 56.0
 
 [node name="Executioner" type="CharacterBody2D"]
 collision_layer = 16
@@ -120,25 +126,53 @@ libraries = {
 "": SubResource("AnimationLibrary_khrfv")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, -34)
-texture = ExtResource("1_faqnv")
-hframes = 10
-vframes = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Components"]]
 position = Vector2(0, -28)
 shape = SubResource("CapsuleShape2D_b27ta")
 
-[node name="HitboxComponent" type="Area2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="HitboxComponent" type="Area2D" parent="Marker2D" groups=["Components"]]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("3_1itvx")
 
-[node name="MeleeHitbox" type="CollisionShape2D" parent="HitboxComponent"]
-visible = false
-position = Vector2(34, -28)
+[node name="MeleeHitbox" type="CollisionShape2D" parent="Marker2D/HitboxComponent" groups=["Components"]]
+position = Vector2(34, 2.5)
 shape = SubResource("RectangleShape2D_aw1hr")
 disabled = true
 
+[node name="RayCast2D" type="RayCast2D" parent="Marker2D" groups=["Components"]]
+target_position = Vector2(56, 0)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(4, -4)
+texture = ExtResource("1_faqnv")
+hframes = 10
+vframes = 7
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("4_k4vim")
+MAX_HEALTH = 2
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["Components"]]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" groups=["Components"]]
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_saf12")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -50)
+scale = Vector2(10, 5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3vy3m")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,386 @@
+[gd_scene load_steps=83 format=3 uid="uid://nieu7on8i43o"]
+
+[ext_resource type="Texture2D" uid="uid://xf30us1ebyyg" path="res://Assets/MainCharacter/Water/png/01_idle/idle_1.png" id="1_h1yug"]
+[ext_resource type="Script" uid="uid://b6mbj3vtgf6f6" path="res://Scripts/player_water.gd" id="1_rflnr"]
+[ext_resource type="Texture2D" uid="uid://jo4xnq43f33o" path="res://Assets/MainCharacter/Water/png/01_idle/idle_2.png" id="2_2wgt7"]
+[ext_resource type="Texture2D" uid="uid://bv0qbolda4sn2" path="res://Assets/MainCharacter/Water/png/01_idle/idle_3.png" id="3_2v8kk"]
+[ext_resource type="Texture2D" uid="uid://bbl4d43fuivab" path="res://Assets/MainCharacter/Water/png/01_idle/idle_4.png" id="4_t7icr"]
+[ext_resource type="Texture2D" uid="uid://cw2gwvffc34et" path="res://Assets/MainCharacter/Water/png/01_idle/idle_5.png" id="5_hkiis"]
+[ext_resource type="Texture2D" uid="uid://dav14oombu3hb" path="res://Assets/MainCharacter/Water/png/01_idle/idle_6.png" id="6_2365i"]
+[ext_resource type="Texture2D" uid="uid://bugqk5n1ydrwl" path="res://Assets/MainCharacter/Water/png/01_idle/idle_7.png" id="7_s1s5x"]
+[ext_resource type="Texture2D" uid="uid://fuq7mgg8bjf6" path="res://Assets/MainCharacter/Water/png/01_idle/idle_8.png" id="8_ni8hv"]
+[ext_resource type="Texture2D" uid="uid://dsat7tg8d2lvq" path="res://Assets/MainCharacter/Water/png/02_walk/walk_1.png" id="10_fi72l"]
+[ext_resource type="Texture2D" uid="uid://dwrqb6l730er2" path="res://Assets/MainCharacter/Water/png/02_walk/walk_2.png" id="11_0hta4"]
+[ext_resource type="Texture2D" uid="uid://cak8gkdmfpxu5" path="res://Assets/MainCharacter/Water/png/02_walk/walk_3.png" id="12_xdd76"]
+[ext_resource type="Texture2D" uid="uid://dbgptb36d3equ" path="res://Assets/MainCharacter/Water/png/02_walk/walk_4.png" id="13_g87g6"]
+[ext_resource type="Texture2D" uid="uid://dev1jltne0ukq" path="res://Assets/MainCharacter/Water/png/02_walk/walk_5.png" id="14_2kp32"]
+[ext_resource type="Texture2D" uid="uid://bklrr8kg3r07f" path="res://Assets/MainCharacter/Water/png/02_walk/walk_6.png" id="15_32g6s"]
+[ext_resource type="Texture2D" uid="uid://c0x3iweelind3" path="res://Assets/MainCharacter/Water/png/02_walk/walk_7.png" id="16_kkujt"]
+[ext_resource type="Texture2D" uid="uid://1yfssqwundqm" path="res://Assets/MainCharacter/Water/png/02_walk/walk_8.png" id="17_8hklv"]
+[ext_resource type="Texture2D" uid="uid://cvvevoan7jcdv" path="res://Assets/MainCharacter/Water/png/02_walk/walk_9.png" id="18_1r47e"]
+[ext_resource type="Texture2D" uid="uid://bisbxnfct5rp8" path="res://Assets/MainCharacter/Water/png/02_walk/walk_10.png" id="19_1dg01"]
+[ext_resource type="Texture2D" uid="uid://dg1e2spl735ae" path="res://Assets/MainCharacter/Water/png/03_surf/surf_1.png" id="20_ckw4q"]
+[ext_resource type="Texture2D" uid="uid://bn82vghcm6utk" path="res://Assets/MainCharacter/Water/png/03_surf/surf_2.png" id="21_m72oh"]
+[ext_resource type="Texture2D" uid="uid://cqah1obts1u1o" path="res://Assets/MainCharacter/Water/png/03_surf/surf_3.png" id="22_uc3o5"]
+[ext_resource type="Texture2D" uid="uid://dw8xaqmr8h52a" path="res://Assets/MainCharacter/Water/png/03_surf/surf_4.png" id="23_tx2fr"]
+[ext_resource type="Texture2D" uid="uid://48rhe5k2vbmn" path="res://Assets/MainCharacter/Water/png/03_surf/surf_5.png" id="24_gdnu7"]
+[ext_resource type="Texture2D" uid="uid://brh0m7iru78k" path="res://Assets/MainCharacter/Water/png/03_surf/surf_6.png" id="25_52ywn"]
+[ext_resource type="Texture2D" uid="uid://biwaujpiab8ms" path="res://Assets/MainCharacter/Water/png/03_surf/surf_7.png" id="26_hvr53"]
+[ext_resource type="Texture2D" uid="uid://crennraub3l0k" path="res://Assets/MainCharacter/Water/png/03_surf/surf_8.png" id="27_jj2bl"]
+[ext_resource type="Texture2D" uid="uid://xbbko5ah24uq" path="res://Assets/MainCharacter/Water/png/04_j_up/j_up_1.png" id="28_jssjq"]
+[ext_resource type="Texture2D" uid="uid://d0khlkm33rmix" path="res://Assets/MainCharacter/Water/png/04_j_up/j_up_2.png" id="29_0rshk"]
+[ext_resource type="Texture2D" uid="uid://dl6s7kosdfkls" path="res://Assets/MainCharacter/Water/png/04_j_up/j_up_3.png" id="30_loi0q"]
+[ext_resource type="Texture2D" uid="uid://cafm50rrk46os" path="res://Assets/MainCharacter/Water/png/05_j_down/j_down_1.png" id="31_fh0v3"]
+[ext_resource type="Texture2D" uid="uid://kjpji0a220lq" path="res://Assets/MainCharacter/Water/png/05_j_down/j_down_2.png" id="32_cs2v6"]
+[ext_resource type="Texture2D" uid="uid://bob3jnxsb2bhx" path="res://Assets/MainCharacter/Water/png/05_j_down/j_down_3.png" id="33_ebo1c"]
+[ext_resource type="Texture2D" uid="uid://cv701yniun7j" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_1.png" id="34_iu60u"]
+[ext_resource type="Texture2D" uid="uid://bslmd3fv8taow" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_2.png" id="35_tn37y"]
+[ext_resource type="Texture2D" uid="uid://dvguqcbopoegk" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_3.png" id="36_370ub"]
+[ext_resource type="Texture2D" uid="uid://ki2ehooy6u14" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_4.png" id="37_ym1ne"]
+[ext_resource type="Texture2D" uid="uid://uaq3u08elr0b" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_5.png" id="38_8uwaj"]
+[ext_resource type="Texture2D" uid="uid://ieo7vs4xs6it" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_6.png" id="39_e8vd4"]
+[ext_resource type="Texture2D" uid="uid://h24v2iu3fmy2" path="res://Assets/MainCharacter/Water/png/07_1_atk/1_atk_7.png" id="40_5o1wh"]
+[ext_resource type="Texture2D" uid="uid://b75ehltqdk8aq" path="res://Assets/MainCharacter/Water/png/14_death/death_1.png" id="42_stew6"]
+[ext_resource type="Script" uid="uid://dlkg6c6p32cxl" path="res://Scripts/Components/HitboxComponent.gd" id="42_wuslk"]
+[ext_resource type="Texture2D" uid="uid://bfmwveythjl4j" path="res://Assets/MainCharacter/Water/png/14_death/death_2.png" id="43_lfh5w"]
+[ext_resource type="Texture2D" uid="uid://ctn30tg0nrssg" path="res://Assets/MainCharacter/Water/png/14_death/death_3.png" id="44_o0sca"]
+[ext_resource type="Texture2D" uid="uid://c2uwwinb6ejiw" path="res://Assets/MainCharacter/Water/png/14_death/death_4.png" id="45_iasko"]
+[ext_resource type="Texture2D" uid="uid://c63u5jc0p678q" path="res://Assets/MainCharacter/Water/png/14_death/death_5.png" id="46_usqck"]
+[ext_resource type="Texture2D" uid="uid://i5juuk1jv4ov" path="res://Assets/MainCharacter/Water/png/14_death/death_6.png" id="47_0nqkh"]
+[ext_resource type="Texture2D" uid="uid://bslsvdcn2os8n" path="res://Assets/MainCharacter/Water/png/14_death/death_7.png" id="48_h2lux"]
+[ext_resource type="Texture2D" uid="uid://bea1guttntul2" path="res://Assets/MainCharacter/Water/png/14_death/death_8.png" id="49_olu1d"]
+[ext_resource type="Texture2D" uid="uid://57a6x4hlj00w" path="res://Assets/MainCharacter/Water/png/14_death/death_9.png" id="50_acqbt"]
+[ext_resource type="Texture2D" uid="uid://d287ywiaic2lt" path="res://Assets/MainCharacter/Water/png/14_death/death_10.png" id="51_7qlu6"]
+[ext_resource type="Texture2D" uid="uid://ds7cj1oo01m7e" path="res://Assets/MainCharacter/Water/png/14_death/death_11.png" id="52_0oh4h"]
+[ext_resource type="Texture2D" uid="uid://b44uvlf05hebe" path="res://Assets/MainCharacter/Water/png/14_death/death_12.png" id="53_tdinf"]
+[ext_resource type="Texture2D" uid="uid://cr1wmq1x1k6i6" path="res://Assets/MainCharacter/Water/png/14_death/death_13.png" id="54_eovxu"]
+[ext_resource type="Texture2D" uid="uid://bruedxemenmya" path="res://Assets/MainCharacter/Water/png/14_death/death_14.png" id="55_lbbtf"]
+[ext_resource type="Texture2D" uid="uid://c0lj28b0vd5bi" path="res://Assets/MainCharacter/Water/png/14_death/death_15.png" id="56_n4tt6"]
+[ext_resource type="Texture2D" uid="uid://cwdsutf6vtmig" path="res://Assets/MainCharacter/Water/png/14_death/death_16.png" id="57_jx8kx"]
+[ext_resource type="Texture2D" uid="uid://bigdcorbflfek" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_1.png" id="58_lpohr"]
+[ext_resource type="Texture2D" uid="uid://cmpgaglq7hg4r" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_2.png" id="59_7u37g"]
+[ext_resource type="Texture2D" uid="uid://cxlqctib5a748" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_3.png" id="60_hstjp"]
+[ext_resource type="Texture2D" uid="uid://cbh0donn2o6t5" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_4.png" id="61_hcomp"]
+[ext_resource type="Texture2D" uid="uid://0pg3ao0ftm8h" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_5.png" id="62_22gds"]
+[ext_resource type="Texture2D" uid="uid://h2vxcuc4cq77" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_6.png" id="63_ouvwj"]
+[ext_resource type="Texture2D" uid="uid://b2wgj5eywlrye" path="res://Assets/MainCharacter/Water/png/13_take_hit/take_hit_7.png" id="64_fqusg"]
+[ext_resource type="AudioStream" uid="uid://c7arjxgakrhrc" path="res://Assets/Audio/Wind/Running.mp3" id="65_n1gjq"]
+[ext_resource type="AudioStream" uid="uid://inpees10q7w5" path="res://Assets/Audio/Water/WaterGrunt.mp3" id="66_8spg0"]
+[ext_resource type="AudioStream" uid="uid://belksmh1r2m3u" path="res://Assets/Audio/Water/WaterSlash.mp3" id="67_vxj60"]
+[ext_resource type="AudioStream" uid="uid://d3i7fy0g8qngs" path="res://Assets/Audio/Water/WaterDeath.mp3" id="68_6xj2l"]
+[ext_resource type="AudioStream" uid="uid://cwphpgt1n2f45" path="res://Assets/Audio/Water/WaterSurf.mp3" id="69_em1xb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpdei"]
+radius = 11.0
+height = 38.0
+
+[sub_resource type="Animation" id="Animation_k64ai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_h1yug")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Water:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player_Water/Marker2D/HitboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_u2pyp"]
+resource_name = "water_attack"
+length = 0.583342
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("34_iu60u"), ExtResource("35_tn37y"), ExtResource("35_tn37y"), ExtResource("36_370ub"), ExtResource("37_ym1ne"), ExtResource("38_8uwaj"), ExtResource("39_e8vd4"), ExtResource("40_5o1wh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Water:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.583333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player_Water/Marker2D/HitboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_slerx"]
+resource_name = "water_damaged"
+length = 0.375006
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("58_lpohr"), ExtResource("59_7u37g"), ExtResource("60_hstjp"), ExtResource("61_hcomp"), ExtResource("62_22gds"), ExtResource("63_ouvwj"), ExtResource("64_fqusg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_Water:attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kg4oh"]
+resource_name = "water_death"
+length = 0.937503
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875, 0.75, 0.8125, 0.875, 0.9375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("42_stew6"), ExtResource("43_lfh5w"), ExtResource("44_o0sca"), ExtResource("45_iasko"), ExtResource("46_usqck"), ExtResource("47_0nqkh"), ExtResource("48_h2lux"), ExtResource("49_olu1d"), ExtResource("50_acqbt"), ExtResource("51_7qlu6"), ExtResource("52_0oh4h"), ExtResource("53_tdinf"), ExtResource("54_eovxu"), ExtResource("55_lbbtf"), ExtResource("56_n4tt6"), ExtResource("57_jx8kx")]
+}
+
+[sub_resource type="Animation" id="Animation_67omf"]
+resource_name = "water_fall"
+length = 0.22
+step = 0.11
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.111111, 0.222222),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("31_fh0v3"), ExtResource("32_cs2v6"), ExtResource("33_ebo1c")]
+}
+
+[sub_resource type="Animation" id="Animation_qgk5u"]
+resource_name = "water_idle"
+length = 0.9
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_h1yug"), ExtResource("2_2wgt7"), ExtResource("3_2v8kk"), ExtResource("4_t7icr"), ExtResource("5_hkiis"), ExtResource("6_2365i"), ExtResource("7_s1s5x"), ExtResource("8_ni8hv")]
+}
+
+[sub_resource type="Animation" id="Animation_74cda"]
+resource_name = "water_jump"
+length = 0.22
+step = 0.11
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.111111, 0.222222),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("28_jssjq"), ExtResource("29_0rshk"), ExtResource("30_loi0q")]
+}
+
+[sub_resource type="Animation" id="Animation_mk52b"]
+resource_name = "water_surf"
+length = 0.9
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.1251, 0.25, 0.2501, 0.2502, 0.375, 0.5, 0.625, 0.6251, 0.75, 0.7501, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_ckw4q"), ExtResource("10_fi72l"), ExtResource("21_m72oh"), ExtResource("10_fi72l"), ExtResource("10_fi72l"), ExtResource("22_uc3o5"), ExtResource("23_tx2fr"), ExtResource("24_gdnu7"), ExtResource("10_fi72l"), ExtResource("25_52ywn"), ExtResource("10_fi72l"), ExtResource("26_hvr53"), ExtResource("27_jj2bl")]
+}
+
+[sub_resource type="Animation" id="Animation_hflsb"]
+resource_name = "water_walk"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Water/Water:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_fi72l"), ExtResource("11_0hta4"), ExtResource("12_xdd76"), ExtResource("13_g87g6"), ExtResource("14_2kp32"), ExtResource("15_32g6s"), ExtResource("16_kkujt"), ExtResource("17_8hklv"), ExtResource("18_1r47e"), ExtResource("19_1dg01")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2a5e"]
+_data = {
+&"RESET": SubResource("Animation_k64ai"),
+&"water_attack": SubResource("Animation_u2pyp"),
+&"water_damaged": SubResource("Animation_slerx"),
+&"water_death": SubResource("Animation_kg4oh"),
+&"water_fall": SubResource("Animation_67omf"),
+&"water_idle": SubResource("Animation_qgk5u"),
+&"water_jump": SubResource("Animation_74cda"),
+&"water_surf": SubResource("Animation_mk52b"),
+&"water_walk": SubResource("Animation_hflsb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qlev"]
+size = Vector2(30, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50esd"]
+size = Vector2(28, 39)
+
+[node name="Player_Water" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 4
+collision_mask = 337
+floor_constant_speed = true
+floor_max_angle = 1.0472
+floor_snap_length = 20.0
+script = ExtResource("1_rflnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_cpdei")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_cpdei")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_n2a5e")
+}
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(0, -63)
+texture = ExtResource("10_fi72l")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="HitboxComponent" type="Area2D" parent="Marker2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("42_wuslk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/HitboxComponent"]
+position = Vector2(46, -25)
+shape = SubResource("RectangleShape2D_6qlev")
+disabled = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -19.5)
+shape = SubResource("RectangleShape2D_50esd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="AudioRun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("65_n1gjq")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioGrunt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("66_8spg0")
+volume_db = -10.0
+
+[node name="AudioSlash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("67_vxj60")
+
+[node name="AudioDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("68_6xj2l")
+volume_db = -10.0
+
+[node name="AudioSurf" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("69_em1xb")
+volume_db = -20.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

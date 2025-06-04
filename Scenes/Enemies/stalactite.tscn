@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://duefgsi6aq0cx"]
+
+[ext_resource type="Script" uid="uid://ioct72r0lnvb" path="res://Scripts/stalactite.gd" id="1_ljwnq"]
+[ext_resource type="Texture2D" uid="uid://baa1158ybyecx" path="res://Assets/Traps/Stalactites.png" id="2_mg5d5"]
+[ext_resource type="Script" uid="uid://dlkg6c6p32cxl" path="res://Scripts/Components/HitboxComponent.gd" id="3_b170n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q523i"]
+size = Vector2(28, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykl6x"]
+size = Vector2(28, 25)
+
+[node name="Stalactite" type="CharacterBody2D"]
+collision_layer = 80
+collision_mask = 5
+script = ExtResource("1_ljwnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 16)
+texture = ExtResource("2_mg5d5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 16)
+shape = SubResource("RectangleShape2D_q523i")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("3_b170n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(1, 16.5)
+shape = SubResource("RectangleShape2D_ykl6x")

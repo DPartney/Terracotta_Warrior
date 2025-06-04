@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://dixcdgsbkdl4d"]
+
+[ext_resource type="Script" uid="uid://cjxsu1m027n3j" path="res://arrow_trap.gd" id="1_6p2a6"]
+[ext_resource type="Texture2D" uid="uid://chass6tkx4t3n" path="res://Assets/Traps/Shooter_Arrow_Trap.png" id="2_1si3c"]
+[ext_resource type="PackedScene" uid="uid://cn368lyb6slng" path="res://Scenes/arrow.tscn" id="3_7stpd"]
+[ext_resource type="AudioStream" uid="uid://c3mqv4jmm3uvd" path="res://Assets/Audio/ArrowShoot.mp3" id="4_u1qft"]
+
+[sub_resource type="Animation" id="Animation_j6kdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_djjcl"]
+resource_name = "shoot"
+length = 1.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"SpawnArrow"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g152m"]
+_data = {
+&"RESET": SubResource("Animation_j6kdo"),
+&"shoot": SubResource("Animation_djjcl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p21uf"]
+
+[node name="ArrowTrap" type="Node2D"]
+script = ExtResource("1_6p2a6")
+Arrow = ExtResource("3_7stpd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_1si3c")
+hframes = 6
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g152m")
+}
+
+[node name="AudioShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u1qft")
+max_distance = 500.0
+
+[node name="ActivateArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateArea"]
+shape = SubResource("RectangleShape2D_p21uf")
+
+[connection signal="area_entered" from="ActivateArea" to="." method="_on_activate_area_area_entered"]
+[connection signal="area_exited" from="ActivateArea" to="." method="_on_activate_area_area_exited"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3x5irbg3g0e5"]
+
+[ext_resource type="Script" uid="uid://bo3fjak2xx8s4" path="res://Scripts/UI/title.gd" id="1_tx3e8"]
+[ext_resource type="Texture2D" uid="uid://dexiu7c2udu3y" path="res://Assets/UI/CrimsonFantasyGUI/GUISprite.png" id="2_t3mqc"]
+[ext_resource type="FontFile" uid="uid://c1eomngy30hfh" path="res://Assets/UI/monogram.ttf" id="3_gifab"]
+[ext_resource type="Texture2D" uid="uid://bruucriqg34qk" path="res://Assets/UI/CrimsonFantasyGUI/Newstuff 1.png" id="4_4hmsj"]
+[ext_resource type="Texture2D" uid="uid://scxq1oxu064s" path="res://Assets/UI/finalNight.PNG" id="5_k5khd"]
+[ext_resource type="AudioStream" uid="uid://b7mfvu7x6cdxl" path="res://Assets/Audio/Music/MainMenu.mp3" id="6_egm7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reij0"]
+atlas = ExtResource("2_t3mqc")
+region = Rect2(292, 100, 72, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pkce"]
+atlas = ExtResource("2_t3mqc")
+region = Rect2(289, 128, 78, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wlhp8"]
+font = ExtResource("3_gifab")
+font_size = 256
+font_color = Color(1, 0.917647, 0.788235, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfr1k"]
+atlas = ExtResource("4_4hmsj")
+region = Rect2(10, 9, 48, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yikti"]
+line_spacing = 1.0
+font = ExtResource("3_gifab")
+font_color = Color(1, 0.917647, 0.788235, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tx3e8")
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 140.0
+
+[node name="Top" type="TextureRect" parent="Title"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 2560.0
+offset_bottom = 350.0
+texture = SubResource("AtlasTexture_reij0")
+stretch_mode = 5
+
+[node name="Bot" type="TextureRect" parent="Title"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 550.0
+offset_right = 2560.0
+offset_bottom = 850.0
+texture = SubResource("AtlasTexture_6pkce")
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Title"]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 2560.0
+offset_bottom = 553.0
+theme_override_font_sizes/font_size = 64
+text = "Terracotta Warrior"
+label_settings = SubResource("LabelSettings_wlhp8")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+visible = false
+top_level = true
+layout_mode = 0
+offset_top = 400.0
+offset_right = 256.0
+offset_bottom = 560.0
+scale = Vector2(10, 10)
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_rfr1k")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Buttons/StartButton"]
+layout_mode = 0
+offset_left = 113.8
+offset_top = 1.1
+offset_right = 143.8
+offset_bottom = 14.1
+text = "Start"
+label_settings = SubResource("LabelSettings_yikti")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_rfr1k")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Buttons/OptionsButton"]
+layout_mode = 0
+offset_left = 107.7
+offset_top = 1.3
+offset_right = 149.7
+offset_bottom = 14.3
+text = "Options"
+label_settings = SubResource("LabelSettings_yikti")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_rfr1k")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="Buttons/QuitButton"]
+layout_mode = 0
+offset_left = 107.8
+offset_top = 0.899998
+offset_right = 149.8
+offset_bottom = 13.9
+text = "Quit"
+label_settings = SubResource("LabelSettings_yikti")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -5
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1600.0
+texture = ExtResource("5_k5khd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_egm7p")
+autoplay = true
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

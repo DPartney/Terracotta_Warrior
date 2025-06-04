@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://3wyvpw2h4mym"]
+
+[ext_resource type="Texture2D" uid="uid://dmvkkh4iesaw0" path="res://Assets/MainCharacter/Fire/01_idle/idle_1.png" id="1_n3xbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5is17"]
+size = Vector2(28, 40)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4364c"]
+radius = 14.0
+height = 39.0
+
+[node name="PlayerFire" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -65)
+texture = ExtResource("1_n3xbm")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(1.01076, 1.19478)
+collision_layer = 4
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-0.989354, -20.0873)
+shape = SubResource("RectangleShape2D_5is17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -24)
+scale = Vector2(1, 1.16)
+shape = SubResource("CapsuleShape2D_4364c")

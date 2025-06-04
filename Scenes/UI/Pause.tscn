@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://1j6wssl7ldce"]
 
-[ext_resource type="Script" path="res://Scripts/UI/pause.gd" id="1_mvxxy"]
+[ext_resource type="Script" uid="uid://bx0s86obr0lgp" path="res://Scripts/UI/pause.gd" id="1_mvxxy"]
 [ext_resource type="Texture2D" uid="uid://bruucriqg34qk" path="res://Assets/UI/CrimsonFantasyGUI/Newstuff 1.png" id="2_cc0l4"]
 [ext_resource type="FontFile" uid="uid://c1eomngy30hfh" path="res://Assets/UI/monogram.ttf" id="3_8bw2a"]
 

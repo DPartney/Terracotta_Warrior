@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd8o5grqvjxnk"]
+[gd_scene load_steps=12 format=3 uid="uid://dd8o5grqvjxnk"]
 
 [ext_resource type="Texture2D" uid="uid://bruucriqg34qk" path="res://Assets/UI/CrimsonFantasyGUI/Newstuff 1.png" id="1_r0hx1"]
-[ext_resource type="Script" path="res://Scripts/UI/title.gd" id="1_tqgvl"]
+[ext_resource type="Script" uid="uid://bo3fjak2xx8s4" path="res://Scripts/UI/title.gd" id="1_tqgvl"]
 [ext_resource type="FontFile" uid="uid://c1eomngy30hfh" path="res://Assets/UI/monogram.ttf" id="3_4gu0w"]
 [ext_resource type="Texture2D" uid="uid://scxq1oxu064s" path="res://Assets/UI/finalNight.PNG" id="3_7sdwq"]
 [ext_resource type="Texture2D" uid="uid://dexiu7c2udu3y" path="res://Assets/UI/CrimsonFantasyGUI/GUISprite.png" id="5_kn5x7"]
+[ext_resource type="AudioStream" uid="uid://b7mfvu7x6cdxl" path="res://Assets/Audio/Music/MainMenu.mp3" id="6_whu4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reij0"]
 atlas = ExtResource("5_kn5x7")
@@ -129,6 +130,10 @@ layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1600.0
 texture = ExtResource("3_7sdwq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_whu4r")
+autoplay = true
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpj40awt2ocht"]
 
-[ext_resource type="Script" path="res://Scenes/UI/health_bar.gd" id="1_uoyhd"]
+[ext_resource type="Script" uid="uid://cw242gg6336hm" path="res://Scenes/UI/health_bar.gd" id="1_uoyhd"]
 [ext_resource type="Texture2D" uid="uid://bintosolfhocj" path="res://Assets/UI/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="2_6akne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_605u2"]

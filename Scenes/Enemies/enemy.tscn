@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8ei024ifptcu"]
 
-[ext_resource type="Script" path="res://Scripts/Components/HealthComponent.gd" id="2_i5cgo"]
+[ext_resource type="Script" uid="uid://dw27quar45c1f" path="res://Scripts/Components/HealthComponent.gd" id="2_i5cgo"]
 
 [sub_resource type="GDScript" id="GDScript_foscm"]
 script/source = "extends Node2D
